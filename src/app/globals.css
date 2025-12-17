@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+    --font-body: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --bg: rgb(12 18 33);
+    --bg-alt: rgb(15 23 42);
+    --fg: rgb(226 232 240);
+    --muted: rgb(148 163 184);
+    --border: rgb(51 65 85);
+    --primary: rgb(99 102 241);
+    --primary-strong: rgb(79 70 229);
+    --shadow-soft: 0 12px 30px rgba(0, 0, 0, 0.35);
+  }
+
+  body {
+    @apply min-h-screen bg-[var(--bg)] text-[var(--fg)] antialiased;
+    font-family: var(--font-body);
+  }
+
+  a {
+    @apply text-[var(--fg)] no-underline;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-semibold text-[var(--fg)];
+  }
+
+  p {
+    @apply text-[var(--muted)];
+  }
+
+  * {
+    @apply box-border;
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply inline-flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-[var(--muted)] transition-colors duration-150 hover:text-[var(--fg)] hover:bg-[var(--bg-alt)];
+  }
+
+  .nav-link.active {
+    @apply text-[var(--fg)] bg-[var(--bg-alt)] border border-[var(--border)];
+  }
+
+  .button {
+    @apply inline-flex items-center gap-2 rounded-lg border border-[var(--primary-strong)] bg-[var(--primary)] px-4 py-2 text-sm font-semibold text-[var(--bg)] transition-transform duration-150 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[var(--primary)/0.25];
+  }
+
+  .button.secondary {
+    @apply border border-[var(--border)] bg-transparent text-[var(--fg)] hover:border-[var(--muted)];
+  }
+}
