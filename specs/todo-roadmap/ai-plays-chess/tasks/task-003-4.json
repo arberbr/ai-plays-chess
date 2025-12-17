@@ -1,0 +1,17 @@
+{
+  "id": "task-003-4",
+  "title": "Error handling, retries, and rate-limit backoff",
+  "description": "Add resilient error handling with retries and rate-limit backoff for OpenRouter requests.",
+  "type": "task",
+  "parentId": "epic-003",
+  "status": "todo",
+  "priority": "medium",
+  "estimatedHours": 3,
+  "dependencies": ["task-003-1", "task-003-2"],
+  "sdd": {
+    "phase": "brief",
+    "commands": ["/brief"],
+    "linkedSpec": null,
+    "executeCommand": "/execute-task task-003-4"
+  }
+}

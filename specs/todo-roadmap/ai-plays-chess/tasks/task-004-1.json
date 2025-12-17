@@ -1,0 +1,17 @@
+{
+  "id": "task-004-1",
+  "title": "Chessboard UI + drag/click moves",
+  "description": "Build chessboard UI components with drag/click move input wired to engine state.",
+  "type": "task",
+  "parentId": "epic-004",
+  "status": "todo",
+  "priority": "high",
+  "estimatedHours": 3,
+  "dependencies": [],
+  "sdd": {
+    "phase": "brief",
+    "commands": ["/brief"],
+    "linkedSpec": null,
+    "executeCommand": "/execute-task task-004-1"
+  }
+}

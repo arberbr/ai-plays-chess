@@ -1,0 +1,15 @@
+{
+  "id": "epic-004",
+  "title": "UX: Board, Controls, LocalStorage Save/Load",
+  "description": "Build chessboard UI, controls, move list, and localStorage save/load of games with lightweight theming and accessibility.",
+  "type": "epic",
+  "status": "todo",
+  "estimatedHours": 12,
+  "dependencies": [],
+  "tasks": ["task-004-1", "task-004-2", "task-004-3", "task-004-4"],
+  "sdd": {
+    "phase": "brief",
+    "commands": ["/execute-task epic-004"],
+    "executeCommand": "/execute-task epic-004"
+  }
+}

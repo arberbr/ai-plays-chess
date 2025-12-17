@@ -1,0 +1,15 @@
+{
+  "id": "epic-001",
+  "title": "Foundation & App Shell",
+  "description": "Set up Next.js/TypeScript scaffolding, app shell, navigation, and baseline pages.",
+  "type": "epic",
+  "status": "todo",
+  "estimatedHours": 11,
+  "dependencies": [],
+  "tasks": ["task-001-1", "task-001-2", "task-001-3"],
+  "sdd": {
+    "phase": "brief",
+    "commands": ["/execute-task epic-001"],
+    "executeCommand": "/execute-task epic-001"
+  }
+}

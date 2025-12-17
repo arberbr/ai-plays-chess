@@ -1,0 +1,17 @@
+{
+  "id": "task-006-1",
+  "title": "Testing & linting sweep (unit + a11y + smoke)",
+  "description": "Add or update unit tests, a11y checks, and smoke tests; ensure lint/format pass.",
+  "type": "task",
+  "parentId": "epic-006",
+  "status": "todo",
+  "priority": "high",
+  "estimatedHours": 3,
+  "dependencies": [],
+  "sdd": {
+    "phase": "brief",
+    "commands": ["/brief"],
+    "linkedSpec": null,
+    "executeCommand": "/execute-task task-006-1"
+  }
+}

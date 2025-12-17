@@ -1,0 +1,470 @@
+{
+  "id": "ai-plays-chess",
+  "title": "AI Plays Chess",
+  "description": "Next.js + TypeScript app where the user selects OpenRouter-hosted AI models to play chess against each other, storing games locally and surfacing strong moves plus model quality signals.",
+  "type": "application",
+  "created": "2025-12-17T00:00:00Z",
+  "updated": "2025-12-17T00:00:00Z",
+  "status": "planning",
+  "metadata": {
+    "sddVersion": "3.0",
+    "complexity": "medium",
+    "estimatedDuration": "4 weeks",
+    "teamSize": 1
+  },
+  "columns": [
+    { "id": "todo", "title": "To Do", "order": 0, "tasks": [] },
+    { "id": "in-progress", "title": "In Progress", "order": 1, "tasks": [] },
+    { "id": "review", "title": "Review", "order": 2, "tasks": [] },
+    { "id": "done", "title": "Done", "order": 3, "tasks": ["epic-001", "task-001-1", "task-001-2", "task-001-3", "epic-002", "task-002-1", "task-002-2", "task-002-3", "task-002-4", "epic-003", "task-003-1", "task-003-2", "task-003-3", "task-003-4", "epic-004", "task-004-1", "task-004-2", "task-004-3", "task-004-4", "epic-005", "task-005-1", "task-005-2", "task-005-3", "task-005-4", "epic-006", "task-006-1", "task-006-2", "task-006-3"] }
+  ],
+  "tasks": {
+    "epic-001": {
+      "id": "epic-001",
+      "title": "Foundation & App Shell",
+      "type": "epic",
+      "status": "done",
+      "description": "Set up Next.js/TypeScript scaffolding, app shell, navigation, and baseline pages.",
+      "estimatedHours": 11,
+      "dependencies": [],
+      "sdd": {
+        "phase": "brief",
+        "commands": ["/execute-task epic-001"],
+        "executeCommand": "/execute-task epic-001"
+      },
+      "tasks": ["task-001-1", "task-001-2", "task-001-3"]
+    },
+    "task-001-1": {
+      "id": "task-001-1",
+      "title": "Project bootstrap & tooling",
+      "type": "task",
+      "parentId": "epic-001",
+      "status": "done",
+      "priority": "high",
+      "estimatedHours": 4,
+      "dependencies": [],
+      "sdd": {
+        "phase": "brief",
+        "commands": ["/brief"],
+        "executeCommand": "/execute-task task-001-1",
+        "linkedSpec": "specs/active/task-001-1/feature-brief.md"
+      }
+    },
+    "task-001-2": {
+      "id": "task-001-2",
+      "title": "App shell & layout",
+      "type": "task",
+      "parentId": "epic-001",
+      "status": "done",
+      "priority": "high",
+      "estimatedHours": 4,
+      "dependencies": ["task-001-1"],
+      "sdd": {
+        "phase": "brief",
+        "commands": ["/brief"],
+        "executeCommand": "/execute-task task-001-2",
+        "linkedSpec": "specs/active/task-001-2/feature-brief.md"
+      }
+    },
+    "task-001-3": {
+      "id": "task-001-3",
+      "title": "Navigation & baseline pages",
+      "type": "task",
+      "parentId": "epic-001",
+      "status": "done",
+      "priority": "medium",
+      "estimatedHours": 3,
+      "dependencies": ["task-001-1", "task-001-2"],
+      "sdd": {
+        "phase": "brief",
+        "commands": ["/brief"],
+        "executeCommand": "/execute-task task-001-3",
+        "linkedSpec": "specs/active/task-001-3/feature-brief.md"
+      }
+    },
+    "epic-002": {
+      "id": "epic-002",
+      "title": "Chess Engine, Game Flow & PGN",
+      "type": "epic",
+      "status": "done",
+      "description": "Implement chess rules, move validation, PGN recording, turn loop, timers, and replay/export hooks.",
+      "estimatedHours": 12,
+      "dependencies": [],
+      "sdd": {
+        "phase": "brief",
+        "commands": ["/execute-task epic-002"],
+        "executeCommand": "/execute-task epic-002"
+      },
+      "tasks": ["task-002-1", "task-002-2", "task-002-3", "task-002-4"]
+    },
+    "task-002-1": {
+      "id": "task-002-1",
+      "title": "Game state + rules scaffold",
+      "type": "task",
+      "parentId": "epic-002",
+      "status": "done",
+      "priority": "high",
+      "estimatedHours": 3,
+      "dependencies": [],
+      "sdd": {
+        "phase": "brief",
+        "commands": ["/brief"],
+        "executeCommand": "/execute-task task-002-1",
+        "linkedSpec": "specs/active/task-002-1/feature-brief.md"
+      }
+    },
+    "task-002-2": {
+      "id": "task-002-2",
+      "title": "Move validation & PGN recorder",
+      "type": "task",
+      "parentId": "epic-002",
+      "status": "done",
+      "priority": "high",
+      "estimatedHours": 3,
+      "dependencies": ["task-002-1"],
+      "sdd": {
+        "phase": "brief",
+        "commands": ["/brief"],
+        "executeCommand": "/execute-task task-002-2",
+        "linkedSpec": "specs/active/task-002-2/feature-brief.md"
+      }
+    },
+    "task-002-3": {
+      "id": "task-002-3",
+      "title": "Turn loop & timers",
+      "type": "task",
+      "parentId": "epic-002",
+      "status": "done",
+      "priority": "medium",
+      "estimatedHours": 3,
+      "dependencies": ["task-002-1"],
+      "sdd": {
+        "phase": "brief",
+        "commands": ["/brief"],
+        "executeCommand": "/execute-task task-002-3",
+        "linkedSpec": "specs/active/task-002-3/feature-brief.md"
+      }
+    },
+    "task-002-4": {
+      "id": "task-002-4",
+      "title": "Replay/export hooks (PGN/JSON)",
+      "type": "task",
+      "parentId": "epic-002",
+      "status": "done",
+      "priority": "medium",
+      "estimatedHours": 3,
+      "dependencies": ["task-002-1", "task-002-2"],
+      "sdd": {
+        "phase": "brief",
+        "commands": ["/brief"],
+        "executeCommand": "/execute-task task-002-4",
+        "linkedSpec": "specs/active/task-002-4/feature-brief.md"
+      }
+    },
+    "epic-003": {
+      "id": "epic-003",
+      "title": "OpenRouter Model Integration & Matchmaking",
+      "type": "epic",
+      "status": "done",
+      "description": "Integrate OpenRouter client, fetch model catalog, enable selection of two models, and add robustness for retries/rate limits.",
+      "estimatedHours": 12,
+      "dependencies": [],
+      "sdd": {
+        "phase": "brief",
+        "commands": ["/execute-task epic-003"],
+        "executeCommand": "/execute-task epic-003"
+      },
+      "tasks": ["task-003-1", "task-003-2", "task-003-3", "task-003-4"]
+    },
+    "task-003-1": {
+      "id": "task-003-1",
+      "title": "OpenRouter client setup & auth plumbing",
+      "type": "task",
+      "parentId": "epic-003",
+      "status": "done",
+      "priority": "high",
+      "estimatedHours": 3,
+      "dependencies": [],
+      "sdd": {
+        "phase": "brief",
+        "commands": ["/brief"],
+        "executeCommand": "/execute-task task-003-1",
+        "linkedSpec": "specs/active/task-003-1/feature-brief.md"
+      }
+    },
+    "task-003-2": {
+      "id": "task-003-2",
+      "title": "Model catalog fetch + filtering UI hooks",
+      "type": "task",
+      "parentId": "epic-003",
+      "status": "done",
+      "priority": "high",
+      "estimatedHours": 3,
+      "dependencies": ["task-003-1"],
+      "sdd": {
+        "phase": "brief",
+        "commands": ["/brief"],
+        "executeCommand": "/execute-task task-003-2",
+        "linkedSpec": "specs/active/task-003-2/feature-brief.md"
+      }
+    },
+    "task-003-3": {
+      "id": "task-003-3",
+      "title": "Matchmaking: pick two models, assign colors/roles",
+      "type": "task",
+      "parentId": "epic-003",
+      "status": "done",
+      "priority": "medium",
+      "estimatedHours": 3,
+      "dependencies": ["task-003-2"],
+      "sdd": {
+        "phase": "brief",
+        "commands": ["/brief"],
+        "executeCommand": "/execute-task task-003-3",
+        "linkedSpec": "specs/active/task-003-3/feature-brief.md"
+      }
+    },
+    "task-003-4": {
+      "id": "task-003-4",
+      "title": "Error handling, retries, and rate-limit backoff",
+      "type": "task",
+      "parentId": "epic-003",
+      "status": "done",
+      "priority": "medium",
+      "estimatedHours": 3,
+      "dependencies": ["task-003-1", "task-003-2"],
+      "sdd": {
+        "phase": "brief",
+        "commands": ["/brief"],
+        "executeCommand": "/execute-task task-003-4",
+        "linkedSpec": "specs/active/task-003-4/feature-brief.md"
+      }
+    },
+    "epic-004": {
+      "id": "epic-004",
+      "title": "UX: Board, Controls, LocalStorage Save/Load",
+      "type": "epic",
+      "status": "done",
+      "description": "Build chessboard UI, controls, move list, and localStorage save/load of games with lightweight theming and accessibility.",
+      "estimatedHours": 12,
+      "dependencies": [],
+      "sdd": {
+        "phase": "brief",
+        "commands": ["/execute-task epic-004"],
+        "executeCommand": "/execute-task epic-004"
+      },
+      "tasks": ["task-004-1", "task-004-2", "task-004-3", "task-004-4"]
+    },
+    "task-004-1": {
+      "id": "task-004-1",
+      "title": "Chessboard UI + drag/click moves",
+      "type": "task",
+      "parentId": "epic-004",
+      "status": "done",
+      "priority": "high",
+      "estimatedHours": 3,
+      "dependencies": [],
+      "sdd": {
+        "phase": "brief",
+        "commands": ["/brief"],
+        "executeCommand": "/execute-task task-004-1",
+        "linkedSpec": "specs/active/task-004-1/feature-brief.md"
+      }
+    },
+    "task-004-2": {
+      "id": "task-004-2",
+      "title": "Controls: start/pause/reset, move list display",
+      "type": "task",
+      "parentId": "epic-004",
+      "status": "done",
+      "priority": "high",
+      "estimatedHours": 3,
+      "dependencies": ["task-004-1"],
+      "sdd": {
+        "phase": "brief",
+        "commands": ["/brief"],
+        "executeCommand": "/execute-task task-004-2",
+        "linkedSpec": "specs/active/task-004-2/feature-brief.md"
+      }
+    },
+    "task-004-3": {
+      "id": "task-004-3",
+      "title": "LocalStorage save/load of games (state + PGN)",
+      "type": "task",
+      "parentId": "epic-004",
+      "status": "done",
+      "priority": "medium",
+      "estimatedHours": 3,
+      "dependencies": ["task-004-1", "task-004-2"],
+      "sdd": {
+        "phase": "brief",
+        "commands": ["/brief"],
+        "executeCommand": "/execute-task task-004-3",
+        "linkedSpec": "specs/active/task-004-3/feature-brief.md"
+      }
+    },
+    "task-004-4": {
+      "id": "task-004-4",
+      "title": "Minimal theming and accessibility pass",
+      "type": "task",
+      "parentId": "epic-004",
+      "status": "done",
+      "priority": "medium",
+      "estimatedHours": 3,
+      "dependencies": ["task-004-1"],
+      "sdd": {
+        "phase": "brief",
+        "commands": ["/brief"],
+        "executeCommand": "/execute-task task-004-4",
+        "linkedSpec": "specs/active/task-004-4/feature-brief.md"
+      }
+    },
+    "epic-005": {
+      "id": "epic-005",
+      "title": "Insights: Strong Move Highlights & Model Ranking",
+      "type": "epic",
+      "status": "done",
+      "description": "Analyze moves for strength/blunders, highlight them, rank models by performance, and present summaries.",
+      "estimatedHours": 12,
+      "dependencies": [],
+      "sdd": {
+        "phase": "brief",
+        "commands": ["/execute-task epic-005"],
+        "executeCommand": "/execute-task epic-005"
+      },
+      "tasks": ["task-005-1", "task-005-2", "task-005-3", "task-005-4"]
+    },
+    "task-005-1": {
+      "id": "task-005-1",
+      "title": "Move scoring hook: detect strong/blunder moves",
+      "type": "task",
+      "parentId": "epic-005",
+      "status": "done",
+      "priority": "high",
+      "estimatedHours": 3,
+      "dependencies": [],
+      "sdd": {
+        "phase": "brief",
+        "commands": ["/brief"],
+        "executeCommand": "/execute-task task-005-1",
+        "linkedSpec": "specs/active/task-005-1/feature-brief.md"
+      }
+    },
+    "task-005-2": {
+      "id": "task-005-2",
+      "title": "Inline highlights on board/move list with thresholds",
+      "type": "task",
+      "parentId": "epic-005",
+      "status": "done",
+      "priority": "high",
+      "estimatedHours": 3,
+      "dependencies": ["task-005-1"],
+      "sdd": {
+        "phase": "brief",
+        "commands": ["/brief"],
+        "executeCommand": "/execute-task task-005-2",
+        "linkedSpec": "specs/active/task-005-2/feature-brief.md"
+      }
+    },
+    "task-005-3": {
+      "id": "task-005-3",
+      "title": "Model performance scoring & ranking across games",
+      "type": "task",
+      "parentId": "epic-005",
+      "status": "done",
+      "priority": "medium",
+      "estimatedHours": 3,
+      "dependencies": ["task-005-1"],
+      "sdd": {
+        "phase": "brief",
+        "commands": ["/brief"],
+        "executeCommand": "/execute-task task-005-3",
+        "linkedSpec": "specs/active/task-005-3/feature-brief.md"
+      }
+    },
+    "task-005-4": {
+      "id": "task-005-4",
+      "title": "Summary view: best moves, blunders, model win-rate table",
+      "type": "task",
+      "parentId": "epic-005",
+      "status": "done",
+      "priority": "medium",
+      "estimatedHours": 3,
+      "dependencies": ["task-005-1", "task-005-3"],
+      "sdd": {
+        "phase": "brief",
+        "commands": ["/brief"],
+        "executeCommand": "/execute-task task-005-4",
+        "linkedSpec": "specs/active/task-005-4/feature-brief.md"
+      }
+    },
+    "epic-006": {
+      "id": "epic-006",
+      "title": "Quality, Perf & Delivery",
+      "type": "epic",
+      "status": "done",
+      "description": "Testing, performance polish, and delivery/deployment guidance.",
+      "estimatedHours": 9,
+      "dependencies": [],
+      "sdd": {
+        "phase": "brief",
+        "commands": ["/execute-task epic-006"],
+        "executeCommand": "/execute-task epic-006"
+      },
+      "tasks": ["task-006-1", "task-006-2", "task-006-3"]
+    },
+    "task-006-1": {
+      "id": "task-006-1",
+      "title": "Testing & linting sweep (unit + a11y + smoke)",
+      "type": "task",
+      "parentId": "epic-006",
+      "status": "done",
+      "priority": "high",
+      "estimatedHours": 3,
+      "dependencies": [],
+      "sdd": {
+        "phase": "brief",
+        "commands": ["/brief"],
+        "executeCommand": "/execute-task task-006-1",
+        "linkedSpec": "specs/active/task-006-1/feature-brief.md"
+      }
+    },
+    "task-006-2": {
+      "id": "task-006-2",
+      "title": "Perf polish (memoization, lazy load assets, bundle trims)",
+      "type": "task",
+      "parentId": "epic-006",
+      "status": "done",
+      "priority": "medium",
+      "estimatedHours": 3,
+      "dependencies": ["task-006-1"],
+      "sdd": {
+        "phase": "brief",
+        "commands": ["/brief"],
+        "executeCommand": "/execute-task task-006-2",
+        "linkedSpec": "specs/active/task-006-2/feature-brief.md"
+      }
+    },
+    "task-006-3": {
+      "id": "task-006-3",
+      "title": "Packaging/deploy docs (envs, OpenRouter key, hosting)",
+      "type": "task",
+      "parentId": "epic-006",
+      "status": "done",
+      "priority": "medium",
+      "estimatedHours": 3,
+      "dependencies": ["task-006-1"],
+      "sdd": {
+        "phase": "brief",
+        "commands": ["/brief"],
+        "executeCommand": "/execute-task task-006-3",
+        "linkedSpec": "specs/active/task-006-3/feature-brief.md"
+      }
+    }
+  },
+  "statistics": {
+    "totalTasks": 22,
+    "todoTasks": 0,
+    "completionPercentage": 100
+  }
+}

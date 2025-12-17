@@ -1,0 +1,17 @@
+{
+  "id": "task-001-2",
+  "title": "App shell & layout",
+  "description": "Create global layout with header/footer, responsive container, and theme-ready styling for the chess app.",
+  "type": "task",
+  "parentId": "epic-001",
+  "status": "todo",
+  "priority": "high",
+  "estimatedHours": 4,
+  "dependencies": ["task-001-1"],
+  "sdd": {
+    "phase": "brief",
+    "commands": ["/brief"],
+    "linkedSpec": null,
+    "executeCommand": "/execute-task task-001-2"
+  }
+}

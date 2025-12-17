@@ -1,0 +1,17 @@
+{
+  "id": "task-001-1",
+  "title": "Project bootstrap & tooling",
+  "description": "Initialize Next.js + TypeScript project with lint/format, env handling, and CI placeholder.",
+  "type": "task",
+  "parentId": "epic-001",
+  "status": "todo",
+  "priority": "high",
+  "estimatedHours": 4,
+  "dependencies": [],
+  "sdd": {
+    "phase": "brief",
+    "commands": ["/brief"],
+    "linkedSpec": null,
+    "executeCommand": "/execute-task task-001-1"
+  }
+}

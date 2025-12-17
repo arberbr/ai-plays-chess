@@ -1,0 +1,17 @@
+{
+  "id": "task-006-3",
+  "title": "Packaging/deploy docs (envs, OpenRouter key, hosting)",
+  "description": "Document packaging/deploy steps, environment variables (OpenRouter key), and hosting guidance (Vercel/Netlify).",
+  "type": "task",
+  "parentId": "epic-006",
+  "status": "todo",
+  "priority": "medium",
+  "estimatedHours": 3,
+  "dependencies": ["task-006-1"],
+  "sdd": {
+    "phase": "brief",
+    "commands": ["/brief"],
+    "linkedSpec": null,
+    "executeCommand": "/execute-task task-006-3"
+  }
+}

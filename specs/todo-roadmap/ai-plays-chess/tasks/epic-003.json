@@ -1,0 +1,15 @@
+{
+  "id": "epic-003",
+  "title": "OpenRouter Model Integration & Matchmaking",
+  "description": "Integrate OpenRouter client, fetch model catalog, enable selection of two models, and add robustness for retries/rate limits.",
+  "type": "epic",
+  "status": "todo",
+  "estimatedHours": 12,
+  "dependencies": [],
+  "tasks": ["task-003-1", "task-003-2", "task-003-3", "task-003-4"],
+  "sdd": {
+    "phase": "brief",
+    "commands": ["/execute-task epic-003"],
+    "executeCommand": "/execute-task epic-003"
+  }
+}

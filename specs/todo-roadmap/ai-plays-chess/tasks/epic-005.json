@@ -1,0 +1,15 @@
+{
+  "id": "epic-005",
+  "title": "Insights: Strong Move Highlights & Model Ranking",
+  "description": "Analyze moves for strength/blunders, highlight them, rank models by performance, and present summaries.",
+  "type": "epic",
+  "status": "todo",
+  "estimatedHours": 12,
+  "dependencies": [],
+  "tasks": ["task-005-1", "task-005-2", "task-005-3", "task-005-4"],
+  "sdd": {
+    "phase": "brief",
+    "commands": ["/execute-task epic-005"],
+    "executeCommand": "/execute-task epic-005"
+  }
+}

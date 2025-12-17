@@ -1,0 +1,17 @@
+{
+  "id": "task-003-1",
+  "title": "OpenRouter client setup & auth plumbing",
+  "description": "Set up OpenRouter client, API key handling, and request scaffolding for model interactions.",
+  "type": "task",
+  "parentId": "epic-003",
+  "status": "todo",
+  "priority": "high",
+  "estimatedHours": 3,
+  "dependencies": [],
+  "sdd": {
+    "phase": "brief",
+    "commands": ["/brief"],
+    "linkedSpec": null,
+    "executeCommand": "/execute-task task-003-1"
+  }
+}

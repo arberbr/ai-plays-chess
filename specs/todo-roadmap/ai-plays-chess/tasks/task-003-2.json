@@ -1,0 +1,17 @@
+{
+  "id": "task-003-2",
+  "title": "Model catalog fetch + filtering UI hooks",
+  "description": "Fetch OpenRouter model catalog and expose filtering hooks for UI selection.",
+  "type": "task",
+  "parentId": "epic-003",
+  "status": "todo",
+  "priority": "high",
+  "estimatedHours": 3,
+  "dependencies": ["task-003-1"],
+  "sdd": {
+    "phase": "brief",
+    "commands": ["/brief"],
+    "linkedSpec": null,
+    "executeCommand": "/execute-task task-003-2"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "id": "task-001-3",
+  "title": "Navigation & baseline pages",
+  "description": "Add routing for home, play screen stub, and matches list stub with metadata set up.",
+  "type": "task",
+  "parentId": "epic-001",
+  "status": "todo",
+  "priority": "medium",
+  "estimatedHours": 3,
+  "dependencies": ["task-001-1", "task-001-2"],
+  "sdd": {
+    "phase": "brief",
+    "commands": ["/brief"],
+    "linkedSpec": null,
+    "executeCommand": "/execute-task task-001-3"
+  }
+}

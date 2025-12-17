@@ -1,0 +1,17 @@
+{
+  "id": "task-005-1",
+  "title": "Move scoring hook: detect strong/blunder moves",
+  "description": "Create a move scoring hook that compares engine evaluations to detect strong moves and blunders based on eval deltas.",
+  "type": "task",
+  "parentId": "epic-005",
+  "status": "todo",
+  "priority": "high",
+  "estimatedHours": 3,
+  "dependencies": [],
+  "sdd": {
+    "phase": "brief",
+    "commands": ["/brief"],
+    "linkedSpec": null,
+    "executeCommand": "/execute-task task-005-1"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "id": "task-005-3",
+  "title": "Model performance scoring & ranking across games",
+  "description": "Compute per-model performance metrics (e.g., win rate, avg blunders/strong moves) across games and rank models.",
+  "type": "task",
+  "parentId": "epic-005",
+  "status": "todo",
+  "priority": "medium",
+  "estimatedHours": 3,
+  "dependencies": ["task-005-1"],
+  "sdd": {
+    "phase": "brief",
+    "commands": ["/brief"],
+    "linkedSpec": null,
+    "executeCommand": "/execute-task task-005-3"
+  }
+}

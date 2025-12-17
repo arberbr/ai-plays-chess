@@ -1,0 +1,15 @@
+{
+  "id": "epic-006",
+  "title": "Quality, Perf & Delivery",
+  "description": "Testing, performance polish, and delivery/deployment guidance.",
+  "type": "epic",
+  "status": "todo",
+  "estimatedHours": 9,
+  "dependencies": [],
+  "tasks": ["task-006-1", "task-006-2", "task-006-3"],
+  "sdd": {
+    "phase": "brief",
+    "commands": ["/execute-task epic-006"],
+    "executeCommand": "/execute-task epic-006"
+  }
+}

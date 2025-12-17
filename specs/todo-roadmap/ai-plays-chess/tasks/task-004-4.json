@@ -1,0 +1,17 @@
+{
+  "id": "task-004-4",
+  "title": "Minimal theming and accessibility pass",
+  "description": "Apply minimal theming and address basic accessibility for board, controls, and move list.",
+  "type": "task",
+  "parentId": "epic-004",
+  "status": "todo",
+  "priority": "medium",
+  "estimatedHours": 3,
+  "dependencies": ["task-004-1"],
+  "sdd": {
+    "phase": "brief",
+    "commands": ["/brief"],
+    "linkedSpec": null,
+    "executeCommand": "/execute-task task-004-4"
+  }
+}

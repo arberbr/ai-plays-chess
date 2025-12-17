@@ -1,0 +1,17 @@
+{
+  "id": "task-004-2",
+  "title": "Controls: start/pause/reset, move list display",
+  "description": "Implement controls for start/pause/reset and display move list synchronized with engine state.",
+  "type": "task",
+  "parentId": "epic-004",
+  "status": "todo",
+  "priority": "high",
+  "estimatedHours": 3,
+  "dependencies": ["task-004-1"],
+  "sdd": {
+    "phase": "brief",
+    "commands": ["/brief"],
+    "linkedSpec": null,
+    "executeCommand": "/execute-task task-004-2"
+  }
+}

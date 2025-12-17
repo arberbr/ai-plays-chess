@@ -1,0 +1,17 @@
+{
+  "id": "task-003-3",
+  "title": "Matchmaking: pick two models, assign colors/roles",
+  "description": "Implement selection of two models from catalog, assign colors/roles, and prep payloads for play loop.",
+  "type": "task",
+  "parentId": "epic-003",
+  "status": "todo",
+  "priority": "medium",
+  "estimatedHours": 3,
+  "dependencies": ["task-003-2"],
+  "sdd": {
+    "phase": "brief",
+    "commands": ["/brief"],
+    "linkedSpec": null,
+    "executeCommand": "/execute-task task-003-3"
+  }
+}

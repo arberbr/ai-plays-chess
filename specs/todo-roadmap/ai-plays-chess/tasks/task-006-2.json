@@ -1,0 +1,17 @@
+{
+  "id": "task-006-2",
+  "title": "Perf polish (memoization, lazy load assets, bundle trims)",
+  "description": "Improve performance via memoization, lazy asset loading, and bundle size trimming.",
+  "type": "task",
+  "parentId": "epic-006",
+  "status": "todo",
+  "priority": "medium",
+  "estimatedHours": 3,
+  "dependencies": ["task-006-1"],
+  "sdd": {
+    "phase": "brief",
+    "commands": ["/brief"],
+    "linkedSpec": null,
+    "executeCommand": "/execute-task task-006-2"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "id": "task-002-2",
+  "title": "Move validation & PGN recorder",
+  "description": "Implement move validation logic and PGN move recording to persist game history.",
+  "type": "task",
+  "parentId": "epic-002",
+  "status": "todo",
+  "priority": "high",
+  "estimatedHours": 3,
+  "dependencies": ["task-002-1"],
+  "sdd": {
+    "phase": "brief",
+    "commands": ["/brief"],
+    "linkedSpec": null,
+    "executeCommand": "/execute-task task-002-2"
+  }
+}

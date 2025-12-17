@@ -1,0 +1,15 @@
+{
+  "id": "epic-002",
+  "title": "Chess Engine, Game Flow & PGN",
+  "description": "Implement chess rules, move validation, PGN recording, turn loop, timers, and replay/export hooks.",
+  "type": "epic",
+  "status": "todo",
+  "estimatedHours": 12,
+  "dependencies": [],
+  "tasks": ["task-002-1", "task-002-2", "task-002-3", "task-002-4"],
+  "sdd": {
+    "phase": "brief",
+    "commands": ["/execute-task epic-002"],
+    "executeCommand": "/execute-task epic-002"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "id": "task-002-3",
+  "title": "Turn loop & timers",
+  "description": "Implement turn loop, ensure alternating model turns, and add per-move timers.",
+  "type": "task",
+  "parentId": "epic-002",
+  "status": "todo",
+  "priority": "medium",
+  "estimatedHours": 3,
+  "dependencies": ["task-002-1"],
+  "sdd": {
+    "phase": "brief",
+    "commands": ["/brief"],
+    "linkedSpec": null,
+    "executeCommand": "/execute-task task-002-3"
+  }
+}

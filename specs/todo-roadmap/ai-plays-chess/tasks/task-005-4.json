@@ -1,0 +1,17 @@
+{
+  "id": "task-005-4",
+  "title": "Summary view: best moves, blunders, model win-rate table",
+  "description": "Create a summary view showing top moves, blunders, and a model win-rate/quality table.",
+  "type": "task",
+  "parentId": "epic-005",
+  "status": "todo",
+  "priority": "medium",
+  "estimatedHours": 3,
+  "dependencies": ["task-005-1", "task-005-3"],
+  "sdd": {
+    "phase": "brief",
+    "commands": ["/brief"],
+    "linkedSpec": null,
+    "executeCommand": "/execute-task task-005-4"
+  }
+}

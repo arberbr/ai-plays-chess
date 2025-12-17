@@ -1,0 +1,17 @@
+{
+  "id": "task-005-2",
+  "title": "Inline highlights on board/move list with thresholds",
+  "description": "Render inline highlights on board squares and move list items based on scoring thresholds for strong moves and blunders.",
+  "type": "task",
+  "parentId": "epic-005",
+  "status": "todo",
+  "priority": "high",
+  "estimatedHours": 3,
+  "dependencies": ["task-005-1"],
+  "sdd": {
+    "phase": "brief",
+    "commands": ["/brief"],
+    "linkedSpec": null,
+    "executeCommand": "/execute-task task-005-2"
+  }
+}

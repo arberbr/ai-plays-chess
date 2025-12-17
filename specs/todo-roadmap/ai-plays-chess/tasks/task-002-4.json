@@ -1,0 +1,17 @@
+{
+  "id": "task-002-4",
+  "title": "Replay/export hooks (PGN/JSON)",
+  "description": "Add replay/export hooks for PGN and JSON to enable persistence and sharing of game histories.",
+  "type": "task",
+  "parentId": "epic-002",
+  "status": "todo",
+  "priority": "medium",
+  "estimatedHours": 3,
+  "dependencies": ["task-002-1", "task-002-2"],
+  "sdd": {
+    "phase": "brief",
+    "commands": ["/brief"],
+    "linkedSpec": null,
+    "executeCommand": "/execute-task task-002-4"
+  }
+}

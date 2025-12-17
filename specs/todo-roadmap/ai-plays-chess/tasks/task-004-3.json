@@ -1,0 +1,17 @@
+{
+  "id": "task-004-3",
+  "title": "LocalStorage save/load of games (state + PGN)",
+  "description": "Persist game state and PGN to localStorage and support loading previous games.",
+  "type": "task",
+  "parentId": "epic-004",
+  "status": "todo",
+  "priority": "medium",
+  "estimatedHours": 3,
+  "dependencies": ["task-004-1", "task-004-2"],
+  "sdd": {
+    "phase": "brief",
+    "commands": ["/brief"],
+    "linkedSpec": null,
+    "executeCommand": "/execute-task task-004-3"
+  }
+}

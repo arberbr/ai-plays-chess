@@ -1,0 +1,17 @@
+{
+  "id": "task-002-1",
+  "title": "Game state + rules scaffold",
+  "description": "Set up chess game state representation and basic rules scaffolding to support move processing.",
+  "type": "task",
+  "parentId": "epic-002",
+  "status": "todo",
+  "priority": "high",
+  "estimatedHours": 3,
+  "dependencies": [],
+  "sdd": {
+    "phase": "brief",
+    "commands": ["/brief"],
+    "linkedSpec": null,
+    "executeCommand": "/execute-task task-002-1"
+  }
+}
