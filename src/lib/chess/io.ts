@@ -3,7 +3,7 @@ import { createPgnHeaders, pgnToString } from "./pgn";
 import { legalMoves } from "./status";
 import { formatSan } from "./san";
 import { validateMove } from "./validate";
-import { GameState, Move, PgnMove, PgnRecord } from "./types";
+import { GameState, Move, PgnMove, PgnRecord, ValidationSuccess } from "./types";
 
 // Versioning for exported payloads (increment when schema changes).
 export const GAME_EXPORT_VERSION = 1 as const;
@@ -227,7 +227,7 @@ function parsePgn(pgn: string): { sans: string[]; metadata: GameExportMetadata; 
   return { sans, metadata, initialFen };
 }
 
-function sanToMove(state: GameState, san: string, pgn?: PgnRecord): ReturnType<typeof validateMove> {
+function sanToMove(state: GameState, san: string, pgn?: PgnRecord): ValidationSuccess {
   const candidates = legalMoves(state, state.turn);
   for (const move of candidates) {
     const result = validateMove(state, move, { pgn });

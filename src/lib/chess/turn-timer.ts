@@ -1,4 +1,3 @@
-import { performance } from "node:perf_hooks";
 import { ClockSnapshot, PieceColor, TurnLoopConfig } from "./types";
 
 interface TimerCallbacks {
@@ -24,10 +23,14 @@ export function createTurnTimer(config: Pick<TurnLoopConfig, "tickMs" | "perMove
     }
   }
 
-  function tick(now: number) {
+  function now(): number {
+    return globalThis.performance ? globalThis.performance.now() : Date.now();
+  }
+
+  function tick(current: number) {
     if (!active) return;
-    const elapsed = (now - lastTickMs) / 1000;
-    lastTickMs = now;
+    const elapsed = (current - lastTickMs) / 1000;
+    lastTickMs = current;
 
     if (active === PieceColor.White) {
       remainingWhite = Math.max(0, remainingWhite - elapsed);
@@ -48,8 +51,8 @@ export function createTurnTimer(config: Pick<TurnLoopConfig, "tickMs" | "perMove
   function startTurn(color: PieceColor) {
     clearIntervalIfAny();
     active = color;
-    lastTickMs = performance.now();
-    interval = setInterval(() => tick(performance.now()), config.tickMs);
+    lastTickMs = now();
+    interval = setInterval(() => tick(now()), config.tickMs);
   }
 
   function pause() {

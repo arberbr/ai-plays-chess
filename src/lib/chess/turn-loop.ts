@@ -3,6 +3,7 @@ import {
   ClockSnapshot,
   EndReason,
   MoveProvider,
+  PieceColor,
   TurnContext,
   TurnLoopCallbacks,
   TurnLoopConfig,
@@ -33,7 +34,7 @@ export function createTurnLoop(opts: CreateLoopOptions) {
     { perMoveSeconds: config.perMoveSeconds, tickMs: config.tickMs },
     {
       onTick: (clocks) => callbacks.onTick?.(clocks),
-      onExpire: (color) => finish("timeout", color)
+      onExpire: () => finish("timeout")
     }
   );
 
@@ -67,7 +68,8 @@ export function createTurnLoop(opts: CreateLoopOptions) {
     if (state !== "running" || !ctx) return;
     timer.pause();
 
-    const result = validateMove(ctx.state, providedMove, { pgn: ctx.pgn, headers: opts.headers });
+    const headerInput = opts.headers ? createPgnHeaders(opts.headers) : undefined;
+    const result = validateMove(ctx.state, providedMove, { pgn: ctx.pgn, headers: headerInput });
     if (!result.legal) {
       finish("illegal");
       return;

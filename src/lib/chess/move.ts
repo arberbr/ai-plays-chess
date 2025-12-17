@@ -328,3 +328,4 @@ function addKingMoves(state: GameState, from: Square, piece: Piece, moves: Move[
 export function applyMoves(state: GameState, move: Move): GameState {
   return makeMove(state, move).nextState;
 }
+

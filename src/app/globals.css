@@ -3,57 +3,110 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
+  :root,
+  .theme-light,
+  [data-theme="light"] {
     color-scheme: light;
     --font-body: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    --bg: rgb(12 18 33);
-    --bg-alt: rgb(15 23 42);
-    --fg: rgb(226 232 240);
-    --muted: rgb(148 163 184);
-    --border: rgb(51 65 85);
-    --primary: rgb(99 102 241);
-    --primary-strong: rgb(79 70 229);
+    --bg: #f6f7fb;
+    --bg-muted: #eef1f7;
+    --surface: #ffffff;
+    --surface-strong: #e5e7eb;
+    --surface-emphasis: #d7dce5;
+    --text: #0f172a;
+    --text-muted: #475569;
+    --border: #d0d7e2;
+    --accent: #2563eb;
+    --accent-strong: #1d4ed8;
+    --focus: #f59e0b;
+    --focus-ring: var(--focus);
+    --focus-ring-offset: 2px;
+    --shadow-soft: 0 12px 30px rgba(15, 23, 42, 0.08);
+    --square-light: #f8fafc;
+    --square-dark: #cbd5e1;
+    --highlight: #fef08a;
+    --selection: #bfdbfe;
+    --check: #fecdd3;
+  }
+
+  .theme-dark,
+  [data-theme="dark"] {
+    color-scheme: dark;
+    --bg: #0b1220;
+    --bg-muted: #0f172a;
+    --surface: #0f172a;
+    --surface-strong: #111827;
+    --surface-emphasis: #1f2937;
+    --text: #e2e8f0;
+    --text-muted: #9ca3af;
+    --border: #1f2937;
+    --accent: #8b5cf6;
+    --accent-strong: #7c3aed;
+    --focus: #fbbf24;
+    --focus-ring: var(--focus);
+    --focus-ring-offset: 3px;
     --shadow-soft: 0 12px 30px rgba(0, 0, 0, 0.35);
+    --square-light: #1f2937;
+    --square-dark: #0f172a;
+    --highlight: #4b5563;
+    --selection: #312e81;
+    --check: #7f1d1d;
   }
 
   body {
-    @apply min-h-screen bg-[var(--bg)] text-[var(--fg)] antialiased;
+    @apply min-h-screen bg-[var(--bg)] text-[var(--text)] antialiased;
     font-family: var(--font-body);
   }
 
   a {
-    @apply text-[var(--fg)] no-underline;
+    @apply text-[var(--text)] no-underline;
   }
 
   h1,
   h2,
   h3 {
-    @apply font-semibold text-[var(--fg)];
+    @apply font-semibold text-[var(--text)];
   }
 
   p {
-    @apply text-[var(--muted)];
+    @apply text-[var(--text-muted)];
   }
 
   * {
     @apply box-border;
   }
+
+  *:focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
 }
 
 @layer components {
   .nav-link {
-    @apply inline-flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-[var(--muted)] transition-colors duration-150 hover:text-[var(--fg)] hover:bg-[var(--bg-alt)];
+    @apply inline-flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-[var(--text-muted)] transition-colors duration-150 hover:text-[var(--text)] hover:bg-[var(--bg-muted)];
   }
 
   .nav-link.active {
-    @apply text-[var(--fg)] bg-[var(--bg-alt)] border border-[var(--border)];
+    @apply text-[var(--text)] bg-[var(--bg-muted)] border border-[var(--border)];
   }
 
   .button {
-    @apply inline-flex items-center gap-2 rounded-lg border border-[var(--primary-strong)] bg-[var(--primary)] px-4 py-2 text-sm font-semibold text-[var(--bg)] transition-transform duration-150 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[var(--primary)/0.25];
+    @apply inline-flex items-center gap-2 rounded-lg border border-[var(--accent-strong)] bg-[var(--accent)] px-4 py-2 text-sm font-semibold text-[var(--surface)] transition-transform duration-150 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[var(--accent)/0.25];
   }
 
   .button.secondary {
-    @apply border border-[var(--border)] bg-transparent text-[var(--fg)] hover:border-[var(--muted)];
+    @apply border border-[var(--border)] bg-transparent text-[var(--text)] hover:border-[var(--text-muted)] hover:text-[var(--text)];
   }
 }

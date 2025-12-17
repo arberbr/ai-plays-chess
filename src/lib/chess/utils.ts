@@ -64,3 +64,4 @@ export function pieceToSymbol(type: PieceType, color: PieceColor) {
 export function cloneBoard<T>(board: Record<Square, T | undefined>): Record<Square, T | undefined> {
   return { ...board };
 }
+
