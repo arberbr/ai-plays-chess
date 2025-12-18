@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import React, { memo, useEffect, useMemo, useRef, useState } from "react";
 import type { PointerEvent as ReactPointerEvent } from "react";
 import { GameState, PieceColor, PieceType, Square } from "@/lib/chess/types";
 
@@ -61,7 +61,7 @@ function getSquareFromTarget(target: EventTarget | null): Square | null {
   return null;
 }
 
-export function ChessBoard({
+function ChessBoardComponent({
   state,
   orientation,
   selected,
@@ -242,3 +242,5 @@ export function ChessBoard({
     </div>
   );
 }
+
+export const ChessBoard = memo(ChessBoardComponent);

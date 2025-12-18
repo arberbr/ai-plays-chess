@@ -1,5 +1,6 @@
 "use client";
 
+import React, { memo } from "react";
 import { PieceColor, TurnLoopState } from "@/lib/chess/types";
 
 interface MatchControlsProps {
@@ -12,7 +13,7 @@ interface MatchControlsProps {
   onReset(): void;
 }
 
-export function MatchControls({ loopState, turn, gameOver, onStart, onPause, onResume, onReset }: MatchControlsProps) {
+function MatchControlsComponent({ loopState, turn, gameOver, onStart, onPause, onResume, onReset }: MatchControlsProps) {
   const isRunning = loopState === "running";
   const isPaused = loopState === "paused";
   const isIdle = loopState === "idle";
@@ -77,3 +78,5 @@ export function MatchControls({ loopState, turn, gameOver, onStart, onPause, onR
     </div>
   );
 }
+
+export const MatchControls = memo(MatchControlsComponent);

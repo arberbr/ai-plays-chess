@@ -1,5 +1,6 @@
 "use client";
 
+import React, { memo, useMemo } from "react";
 import { PgnRecord } from "@/lib/chess/types";
 
 interface MoveListProps {
@@ -8,7 +9,7 @@ interface MoveListProps {
   onSelectPly?(ply: number): void;
 }
 
-export function MoveList({ pgn, currentPly, onSelectPly }: MoveListProps) {
+function MoveListComponent({ pgn, currentPly, onSelectPly }: MoveListProps) {
   if (!pgn || pgn.moves.length === 0) {
     return (
       <div className="rounded-xl border border-[var(--border)] bg-[var(--bg-muted)]/60 px-4 py-3 text-sm text-[var(--text-muted)]">
@@ -17,15 +18,19 @@ export function MoveList({ pgn, currentPly, onSelectPly }: MoveListProps) {
     );
   }
 
-  const rows = pgn.moves.map((m, idx) => {
-    const whitePly = idx * 2;
-    const blackPly = idx * 2 + 1;
-    const isWhiteActive = currentPly === whitePly;
-    const isBlackActive = currentPly === blackPly;
-    const isLastWhite = pgn.moves.length * 2 - (m.black ? 2 : 1) === whitePly;
-    const isLastBlack = m.black ? pgn.moves.length * 2 - 1 === blackPly : false;
-    return { ...m, whitePly, blackPly, isWhiteActive, isBlackActive, isLastWhite, isLastBlack };
-  });
+  const rows = useMemo(
+    () =>
+      pgn.moves.map((m, idx) => {
+        const whitePly = idx * 2;
+        const blackPly = idx * 2 + 1;
+        const isWhiteActive = currentPly === whitePly;
+        const isBlackActive = currentPly === blackPly;
+        const isLastWhite = pgn.moves.length * 2 - (m.black ? 2 : 1) === whitePly;
+        const isLastBlack = m.black ? pgn.moves.length * 2 - 1 === blackPly : false;
+        return { ...m, whitePly, blackPly, isWhiteActive, isBlackActive, isLastWhite, isLastBlack };
+      }),
+    [currentPly, pgn.moves]
+  );
 
   return (
     <div
@@ -85,7 +90,7 @@ interface MoveButtonProps {
   onClick?(): void;
 }
 
-function MoveButton({ label, active, muted, isLast, onClick }: MoveButtonProps) {
+const MoveButton = memo(function MoveButton({ label, active, muted, isLast, onClick }: MoveButtonProps) {
   const base =
     "inline-flex min-w-[64px] items-center gap-1 rounded-md px-2 py-1 text-sm transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--focus-ring)] focus-visible:outline-offset-[var(--focus-ring-offset)]";
   const states = active
@@ -106,4 +111,6 @@ function MoveButton({ label, active, muted, isLast, onClick }: MoveButtonProps) 
       {label || "—"}
     </button>
   );
-}
+});
+
+export const MoveList = memo(MoveListComponent);

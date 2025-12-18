@@ -1,10 +1,10 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import dynamic from "next/dynamic";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { BoardControls } from "./_components/board-controls";
 import { ChessBoard } from "./_components/chess-board";
 import { MatchControls } from "./_components/match-controls";
-import { MoveList } from "./_components/move-list";
 import { startingPosition } from "@/lib/chess/fen";
 import { loadGame, saveGame, listGames, deleteGame, SavedGameMeta } from "@/lib/game-storage";
 import { generatePseudoMoves } from "@/lib/chess/move";
@@ -38,6 +38,20 @@ const promotionLabels: Partial<Record<PieceType, string>> = {
 };
 
 const PER_MOVE_SECONDS = 30;
+
+const MoveList = dynamic(() => import("./_components/move-list").then((mod) => mod.MoveList), {
+  loading: () => (
+    <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-4 shadow-[var(--shadow-soft)]">
+      <div className="h-4 w-32 animate-pulse rounded bg-[var(--border)]" />
+      <div className="mt-3 space-y-2">
+        <div className="h-3 w-full animate-pulse rounded bg-[var(--border)]" />
+        <div className="h-3 w-full animate-pulse rounded bg-[var(--border)]" />
+        <div className="h-3 w-3/4 animate-pulse rounded bg-[var(--border)]" />
+      </div>
+    </div>
+  ),
+  ssr: false
+});
 
 function pgnToSanList(pgn?: PgnRecord): string[] {
   if (!pgn) return [];
@@ -198,7 +212,7 @@ export default function PlayPage() {
     return findKingSquare(activeState, activeState.turn);
   }, [activeState, activeStatus.inCheck]);
 
-  const resetBoard = () => {
+  const resetBoard = useCallback(() => {
     loopRef.current.stop("stopped");
     const resetState = startingPosition();
     const resetStatus = evaluateStatus(resetState);
@@ -212,79 +226,88 @@ export default function PlayPage() {
     setMessage(null);
     setLoopState("idle");
     setCurrentPly(undefined);
-  };
+  }, []);
 
-  const handleDrop = (payload: { from: Square; to: Square; promotion?: PieceType }) => {
-    if (loopState !== "idle") {
-      setMessage("Pause or reset the loop to make manual moves.");
-      return;
-    }
-    if (activeStatus.gameOver) {
-      setMessage("Game is over. Reset to play again.");
-      return;
-    }
-    setMessage(null);
-    const piece = activeState.board[payload.from];
-    if (!piece) {
-      setMessage("No piece on that square.");
-      setSelected(undefined);
-      return;
-    }
-
-    if (piece.type === PieceType.Pawn && needsPromotion(piece.color, payload.to) && !payload.promotion) {
-      setPendingPromotion({ from: payload.from, to: payload.to, color: piece.color });
-      setSelected(payload.from);
-      return;
-    }
-
-    const result = validateMove(activeState, payload, { pgn: activePgn });
-    if (!result.legal) {
-      setMessage(result.message ?? "Illegal move");
-      setPendingPromotion(null);
-      return;
-    }
-
-    setGameState(result.nextState);
-    setStatus(result.status);
-    setPgn(result.pgn);
-    setLastMove({ from: payload.from, to: payload.to });
-    setSelected(undefined);
-    setPendingPromotion(null);
-    setCurrentPly(computeLastPly(result.pgn));
-  };
-
-  const handleSelect = (square: Square) => {
-    const piece = activeState.board[square];
-    if (selected && square === selected) {
-      setSelected(undefined);
-      return;
-    }
-
-    if (selected && square !== selected) {
-      handleDrop({ from: selected, to: square });
-      return;
-    }
-
-    if (piece && piece.color === activeState.turn) {
-      setSelected(square);
+  const handleDrop = useCallback(
+    (payload: { from: Square; to: Square; promotion?: PieceType }) => {
+      if (loopState !== "idle") {
+        setMessage("Pause or reset the loop to make manual moves.");
+        return;
+      }
+      if (activeStatus.gameOver) {
+        setMessage("Game is over. Reset to play again.");
+        return;
+      }
       setMessage(null);
-    } else if (piece) {
-      setMessage("Select a piece of the side to move.");
-    } else {
+      const piece = activeState.board[payload.from];
+      if (!piece) {
+        setMessage("No piece on that square.");
+        setSelected(undefined);
+        return;
+      }
+
+      if (piece.type === PieceType.Pawn && needsPromotion(piece.color, payload.to) && !payload.promotion) {
+        setPendingPromotion({ from: payload.from, to: payload.to, color: piece.color });
+        setSelected(payload.from);
+        return;
+      }
+
+      const result = validateMove(activeState, payload, { pgn: activePgn });
+      if (!result.legal) {
+        setMessage(result.message ?? "Illegal move");
+        setPendingPromotion(null);
+        return;
+      }
+
+      setGameState(result.nextState);
+      setStatus(result.status);
+      setPgn(result.pgn);
+      setLastMove({ from: payload.from, to: payload.to });
       setSelected(undefined);
-    }
-  };
+      setPendingPromotion(null);
+      setCurrentPly(computeLastPly(result.pgn));
+    },
+    [activePgn, activeState, activeStatus, loopState]
+  );
 
-  const handlePromotionChoice = (promotion: PieceType) => {
-    if (!pendingPromotion) return;
-    handleDrop({ ...pendingPromotion, promotion });
-  };
+  const handleSelect = useCallback(
+    (square: Square) => {
+      const piece = activeState.board[square];
+      if (selected && square === selected) {
+        setSelected(undefined);
+        return;
+      }
 
-  const flipBoard = () => {
+      if (selected && square !== selected) {
+        handleDrop({ from: selected, to: square });
+        return;
+      }
+
+      if (piece && piece.color === activeState.turn) {
+        setSelected(square);
+        setMessage(null);
+      } else if (piece) {
+        setMessage("Select a piece of the side to move.");
+      } else {
+        setSelected(undefined);
+      }
+    },
+    [activeState, handleDrop, selected]
+  );
+
+  const handlePromotionChoice = useCallback(
+    (promotion: PieceType) => {
+      if (!pendingPromotion) return;
+      handleDrop({ ...pendingPromotion, promotion });
+    },
+    [handleDrop, pendingPromotion]
+  );
+
+  const flipBoard = useCallback(() => {
     setOrientation((prev) => (prev === PieceColor.White ? PieceColor.Black : PieceColor.White));
-  };
+  }, []);
 
-  const handleStartLoop = () => {
+  const handleStartLoop = useCallback(() => {
     if (loopState !== "idle") return;
     const snapshot: TurnContext = {
       state: activeState,
@@ -296,29 +319,32 @@ export default function PlayPage() {
     loopRef.current.start(snapshot);
     setLoopState("running");
     setMessage(null);
-  };
+  }, [activePgn, activeState, activeStatus, loopState, randomProvider]);
 
-  const handlePauseLoop = () => {
+  const handlePauseLoop = useCallback(() => {
     if (loopState !== "running") return;
     loopRef.current.pause();
     setLoopState("paused");
-  };
+  }, [loopState]);
 
-  const handleResumeLoop = () => {
+  const handleResumeLoop = useCallback(() => {
     if (loopState !== "paused") return;
     loopRef.current.resume();
     setLoopState("running");
-  };
+  }, [loopState]);
 
-  const handleSelectPly = (ply: number) => {
-    if (loopState === "running") {
-      loopRef.current.pause();
-      setLoopState("paused");
-    }
-    setCurrentPly(ply);
-  };
+  const handleSelectPly = useCallback(
+    (ply: number) => {
+      if (loopState === "running") {
+        loopRef.current.pause();
+        setLoopState("paused");
+      }
+      setCurrentPly(ply);
+    },
+    [loopState]
+  );
 
-  const handleSaveGame = () => {
+  const handleSaveGame = useCallback(() => {
     setSaving(true);
     const pgnMoves = pgnToSanList(activePgn);
     const metadata = activePgn
@@ -340,9 +366,9 @@ export default function PlayPage() {
     } else {
       setStorageStatus(describeStorageError(res.error));
     }
-  };
+  }, [activePgn, activeState, refreshSaves]);
 
-  const handleLoadGame = (id: string) => {
+  const handleLoadGame = useCallback((id: string) => {
     setLoadingSaveId(id);
     const res = loadGame(id);
     setLoadingSaveId(null);
@@ -362,17 +388,20 @@ export default function PlayPage() {
     } else {
       setStorageStatus(describeStorageError(res.error));
     }
-  };
+  }, []);
 
-  const handleDeleteGame = (id: string) => {
-    const res = deleteGame(id);
-    if (res.ok) {
-      refreshSaves();
-      setStorageStatus("Deleted saved game.");
-    } else {
-      setStorageStatus(describeStorageError(res.error));
-    }
-  };
+  const handleDeleteGame = useCallback(
+    (id: string) => {
+      const res = deleteGame(id);
+      if (res.ok) {
+        refreshSaves();
+        setStorageStatus("Deleted saved game.");
+      } else {
+        setStorageStatus(describeStorageError(res.error));
+      }
+    },
+    [refreshSaves]
+  );
 
   return (
     <div className="flex flex-col gap-8">

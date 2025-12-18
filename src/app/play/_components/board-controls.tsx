@@ -1,5 +1,6 @@
 "use client";
 
+import React, { memo } from "react";
 import { PieceColor } from "@/lib/chess/types";
 
 interface BoardControlsProps {
@@ -9,7 +10,7 @@ interface BoardControlsProps {
   onReset(): void;
 }
 
-export function BoardControls({ orientation, lastMove, onFlip, onReset }: BoardControlsProps) {
+function BoardControlsComponent({ orientation, lastMove, onFlip, onReset }: BoardControlsProps) {
   return (
     <div className="flex flex-wrap items-center gap-3 rounded-xl border border-[var(--border)] bg-[var(--surface)] px-4 py-3 shadow-[var(--shadow-soft)]">
       <div className="flex items-center gap-2 text-sm text-[var(--text-muted)]">
@@ -45,3 +46,5 @@ export function BoardControls({ orientation, lastMove, onFlip, onReset }: BoardC
     </div>
   );
 }
+
+export const BoardControls = memo(BoardControlsComponent);

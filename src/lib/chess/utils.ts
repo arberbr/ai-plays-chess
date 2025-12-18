@@ -65,3 +65,5 @@ export function cloneBoard<T>(board: Record<Square, T | undefined>): Record<Squa
   return { ...board };
 }
 
+
+

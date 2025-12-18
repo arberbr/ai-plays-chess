@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import { useTheme } from './theme-provider';
 
 const getLabel = (resolvedTheme: 'light' | 'dark') =>
